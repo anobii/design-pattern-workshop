@@ -14,6 +14,11 @@ class PubBuilder
      */
     public function buildPub(Staff $staff, $numberOfTables, PubSign $pubSign)
     {
-        // @todo
+        $barman = $staff->getBarman();
+
+        $pub = new Pub($numberOfTables, $barman);
+        $pub->setPubsign($pubSign);
+
+        return $pub;
     }
 }
