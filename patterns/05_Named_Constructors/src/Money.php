@@ -25,7 +25,12 @@ class Money
      */
     public static function constructFromString($moneyAsString)
     {
-        // @todo
+        $numberFormatter = new \NumberFormatter('en_GB', \NumberFormatter::CURRENCY);
+
+        $amount = $numberFormatter->parseCurrency($moneyAsString, $currencyIsoCode);
+        $symbol = str_replace($amount, '', $moneyAsString);
+
+        return new Money($amount, $symbol);
     }
 
     /**
@@ -34,7 +39,7 @@ class Money
      */
     public static function constructFromFloatValueInPounds($floatValue)
     {
-        // @todo
+        return new Money($floatValue, '£');
     }
 
     /**
