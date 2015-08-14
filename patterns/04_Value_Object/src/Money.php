@@ -3,6 +3,7 @@ namespace DesignPatterns\ValueObject;
 
 class Money
 {
+
     /** @var float */
     private $floatValue;
 
@@ -10,12 +11,13 @@ class Money
     private $currencySymbol;
 
     /**
-     * @param float $floatValue
+     * @param float  $floatValue
      * @param string $currencySymbol
      */
     public function __construct($floatValue, $currencySymbol)
     {
-        // @todo
+        $this->floatValue     = $floatValue;
+        $this->currencySymbol = $currencySymbol;
     }
 
     /**
@@ -23,7 +25,7 @@ class Money
      */
     public function getCurrencySymbol()
     {
-        // @todo
+        return $this->currencySymbol;
     }
 
     /**
@@ -31,7 +33,7 @@ class Money
      */
     public function getFloatValue()
     {
-        // @todo
+        return $this->floatValue;
     }
 
     /**
@@ -39,6 +41,6 @@ class Money
      */
     public function __toString()
     {
-        // @todo
+        return $this->currencySymbol . $this->floatValue;
     }
 }
