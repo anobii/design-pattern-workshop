@@ -25,7 +25,12 @@ class Money
      */
     public static function constructFromString($moneyAsString)
     {
-        // @todo
+        $currencySymbol = mb_substr ($moneyAsString, 0,1 );
+        $amount = mb_substr($moneyAsString,1);
+
+        return new Money($amount, $currencySymbol);
+
+
     }
 
     /**
@@ -34,7 +39,7 @@ class Money
      */
     public static function constructFromFloatValueInPounds($floatValue)
     {
-        // @todo
+        return new Money($floatValue, "£");
     }
 
     /**
